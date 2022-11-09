@@ -1,26 +1,37 @@
 let powerups = [];
-let pos = 0;
+scrollMeasure = 0;
+widthCounter = 0;
+
+let elem = document.querySelector('.container');
+let infScroll = new InfiniteScroll( elem, {
+  // options
+  path: '.pagination__next',
+  append: '.post',
+  history: false,
+});
 
 function setup() {
+  background(255);
   createCanvas(windowWidth, windowHeight);
 }
   
 function draw() {
-  background(color('white'));
-  drawTemmieNeck(10.2);
-  drawTemmieNeck(22.2);
+  drawTemmieNeck();
   for (const powerup of powerups) {
     powerup.display();
   }
 }
 
 function mouseWheel(event) {
-  pos += event.delta;
-  return pos;
+  scrollMeasure += event.delta;
 }
 
-function drawTemmieNeck(x) {
-  textSize(10.1);
-  text('░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░', width/2-86.8, x);
+function drawTemmieNeck() {
+  if (scrollMeasure > 12) {
+    textSize(10.1);
+    text('░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░', width/2-86.8, 10.2 + widthCounter * 12);
+    scrollMeasure = 0;
+    widthCounter++;
+  }
 }
 
