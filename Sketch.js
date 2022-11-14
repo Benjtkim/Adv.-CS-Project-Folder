@@ -3,8 +3,8 @@ scrollMeasure1 = 0;
 scrollMeasure2 = 0;
 
 function setup() {
-  background(255);
   createCanvas(windowWidth, windowHeight);
+  
 }
   
 function draw() {
@@ -36,7 +36,7 @@ function drawTemWords() {
   displayWord = temWords[ceil(random(0, temWords.length))];
   if (scrollMeasure2 > 30) {
     textSize(30);
-    text(displayWord, random(0, width), scrollMeasure2);
+    text(displayWord, random(0, width), 20);
     scrollMeasure2 = 0;
   }
 }
