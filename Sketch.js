@@ -1,9 +1,10 @@
 let powerups = [];
-scrollMeasure1 = 0;
-scrollMeasure2 = 0;
+let scrollMeasure1 = 0;
+let scrollMeasure2 = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
   
 }
   
@@ -33,10 +34,10 @@ function drawTemmieNeck() {
 
 function drawTemWords() {
   let temWords = ['hOI', 'famus', 'Muns', 'bOI', 'hOIVS', 'bOI', 'eg', 'colleg']; 
-  displayWord = temWords[ceil(random(0, temWords.length))];
-  if (scrollMeasure2 > 30) {
+  let displayWord = temWords[ceil(random(0, temWords.length))];
+  if (scrollMeasure2 > 1000) {
     textSize(30);
-    text(displayWord, random(0, width), 20);
+    text(displayWord, random(0, width), scrollMeasure2 - 800);
     scrollMeasure2 = 0;
   }
 }
