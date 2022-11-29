@@ -1,13 +1,14 @@
 let powerups = [];
-let scrollMeasure1 = 0;
-let scrollMeasure2 = 0;
+let temWords = [];
+let neckScrollMeasure = 0;
+let wordScrollMeasure = 0;
+let position = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  
 }
-  
+
 function draw() {
   drawTemmieNeck();
   drawTemWords();
@@ -17,27 +18,31 @@ function draw() {
 }
 
 function mouseWheel(event) {
-  scrollMeasure1 += event.delta;
-  scrollMeasure2 += event.delta;
-  console.log(scrollMeasure2);
+  neckScrollMeasure += event.delta;
+  wordScrollMeasure += event.delta;
+  position += event.delta;
+  console.log(wordScrollMeasure);
 }
 
 function drawTemmieNeck() {
-  if (scrollMeasure1 > 12) {
+  if (neckScrollMeasure > 12) {
     let element = document.getElementById("temmieNeck");
     for (let i = 0; i < 10; i++) {
       element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>";
     }
-    scrollMeasure1 = 0;
+    neckScrollMeasure = 0;
   }
 }
 
 function drawTemWords() {
-  let temWords = ['hOI', 'famus', 'Muns', 'bOI', 'hOIVS', 'bOI', 'eg', 'colleg']; 
-  let displayWord = temWords[ceil(random(0, temWords.length))];
-  if (scrollMeasure2 > 1000) {
-    textSize(30);
-    text(displayWord, random(0, width), scrollMeasure2 - 800);
-    scrollMeasure2 = 0;
+  if (wordScrollMeasure > 1000) {
+    let temWords = ['hOI', 'famus', 'Muns', 'bOI', 'hOIVS', 'bOI', 'eg', 'colleg'];
+    let displayWord = createDiv(temWords[ceil(random(0, temWords.length))]);
+    displayWord.style('font-size', '35px');
+    displayWord.position(random(10, width - 50), position);
+    temWords.push(displayWord);
+    wordScrollMeasure = 0;
   }
 }
+
+
