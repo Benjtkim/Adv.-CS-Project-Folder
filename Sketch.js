@@ -1,5 +1,6 @@
 let powerups = [];
 let temWordsDisplayArray = [];
+let uniqueWords = [];
 let neckScrollMeasure = 0;
 let wordScrollMeasure = 0;
 let amtScrolled = 0;
@@ -38,8 +39,8 @@ function drawTemmieNeck() {
 
 function drawTemWords() {
   if (wordScrollMeasure > 800) {
-    let temWords = ['hOI', 'famus', 'Muns', 'bOI', 'hOIVS', 'bOI', 'eg', 'colleg'];
-    nextWord = temWords[ceil(random(0, temWords.length))]
+    let temWords = ['hOI', 'im', 'dis', 'da', 'famus', 'expensiv', 'Muns', 'bOI', 'hOIVS!', 'don', 'eg', 'colleg', 'cool leg', 'welcom'];
+    nextWord = temWords[ceil(random(-1, temWords.length - 1))]
     let displayWord = createDiv(nextWord);
     displayWord.style('font-size', '35px');
     displayWord.position(random(10, width - 50), amtScrolled);
@@ -50,17 +51,25 @@ function drawTemWords() {
 }
 
 function uniqueWordsCounter() {
-  let uniqueWords = [];
-  console.log(uniqueWords);
   if (createdNextWord === true) {
-    createdNextWord = false;
     if (uniqueWords.includes(nextWord) === false) {
       uniqueWords.push(nextWord);
-      console.log(nextWord);
+      console.log(uniqueWords);
     }
+    createdNextWord = false;
   }
-  textSize(30);
-  text('You have found ' + uniqueWords.length + ' unique Temmie words', 50, 50)
+  clear();
+  textSize(20);
+  if (uniqueWords.length === 1) {
+    text('You have found 1 unique Temmie word', 10, 30);
+  }
+  else if (uniqueWords.length === 14) {
+    text('You have found every unique Temmie word', 10, 30)
+  }
+  else {
+    text('You have found ' + uniqueWords.length + ' unique Temmie words', 10, 30);
+  }
+  
 }
 
 
