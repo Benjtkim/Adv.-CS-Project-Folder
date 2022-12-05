@@ -2,11 +2,15 @@ class Powerup {
     constructor (x, y) {
         this.x = x;
         this.y = y;
-        
     }
 
     display() {
-        textSize(50);
-        text('p0WRuP!', this.x, this.y)
+        let powerup = createDiv('p0WRuP!');
+        powerup.style('font-size', '35px');
+        powerup.position(this.x, this.y);
+    }
+
+    isOverWord() {
+        
     }
 }
