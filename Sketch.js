@@ -10,14 +10,14 @@ let powerup;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  powerup = new Powerup(1100, 10);
+  powerup = new raiseScorePowerup(0, 100);
 }
 
 function draw() {
   drawTemmieNeck();
   drawTemWords();
   statsCounters();
-  powerup.display();
+  raiseScorePowerup.display();
   // for (const powerup of powerups) {
   //   powerup.display();
   // }
@@ -46,6 +46,7 @@ function drawTemWords() {
     nextWord = temWords[ceil(random(-1, temWords.length - 1))]
     let displayWord = createDiv(nextWord);
     displayWord.style('font-size', '35px');
+    displayWord.style('z-index', '150');
     displayWord.position(random(10, 1100), amtScrolled);
     createdNextWord = true;
     wordScrollMeasure = 0;
@@ -75,6 +76,28 @@ function statsCounters() {
     text('You have found ' + uniqueWords.length + ' unique Temmie words', 10, 30);
   }
   text('Word count: ' + wordCount, 10, 60);
+
+  if (wordCount <= 10) {
+    text('Your Temmie is tem long', 10, 90);
+  }
+  else if (wordCount <= 20) {
+    text('Your Temmie is tem tem long', 10, 90);
+  }
+  else if (wordCount <= 30) {
+    text('Your Temmie is tem tem tem long', 10, 90);
+  }
+  else if (wordCount <= 40) {
+    text('Your Temmie is temmie long', 10, 90);
+  }
+  else if (wordCount <= 50) {
+    text('Your Temmie is temmie temmie long', 10, 90);
+  }
+  else if (wordCount <= 60) {
+    text('Your Temmie is temmie temmie tem long', 10, 90);
+  }
+  else {
+    text('Your Temmie is temmie temmie tem tem long', 10, 90);
+  }
 }
 
 

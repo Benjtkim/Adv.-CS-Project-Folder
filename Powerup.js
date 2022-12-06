@@ -8,9 +8,7 @@ class Powerup {
         let powerup = createDiv('p0WRuP!');
         powerup.style('font-size', '35px');
         powerup.position(this.x, this.y);
-    }
-
-    isOverWord() {
-        
+        powerup.mousePressed(raiseScore);
     }
 }
+
