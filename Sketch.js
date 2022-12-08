@@ -1,7 +1,7 @@
-// let powerups = [];
 let uniqueWords = [];
 let neckScrollMeasure = 0;
 let wordScrollMeasure = 0;
+let powerupScrollMeasure = 0;
 let amtScrolled = 0;
 let nextWord;
 let createdNextWord;
@@ -10,22 +10,20 @@ let powerup;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  powerup = new raiseScorePowerup(0, 100);
+  // powerup = new raiseScorePowerup(0, 100, 100);
 }
 
 function draw() {
   drawTemmieNeck();
   drawTemWords();
+  drawPowerups();
   statsCounters();
-  raiseScorePowerup.display();
-  // for (const powerup of powerups) {
-  //   powerup.display();
-  // }
 }
 
 function mouseWheel(event) {
   neckScrollMeasure += event.delta;
   wordScrollMeasure += event.delta;
+  powerupScrollMeasure += event.delta;
   amtScrolled += event.delta;
 }
 
@@ -50,6 +48,16 @@ function drawTemWords() {
     displayWord.position(random(10, 1100), amtScrolled);
     createdNextWord = true;
     wordScrollMeasure = 0;
+  }
+}
+
+function drawPowerups() {
+  console.log(powerupScrollMeasure);
+  if (powerupScrollMeasure > 10000) {
+    console.log(powerupScrollMeasure);
+    powerup = new raiseScorePowerup(random(10, 1100), amtScrolled);
+    powerup.display();
+    powerupScrollMeasure = 0;
   }
 }
 
