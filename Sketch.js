@@ -7,13 +7,26 @@ let nextWord;
 let createdNextWord;
 let wordCount = 0;
 let powerup;
+let scrollDemo;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   // powerup = new raiseScorePowerup(0, 100, 100);
+
+  //  scrollDemo = document.querySelector("#temmieNeck");
+
+  // scrollDemo.addEventListener("scroll", event => {
+  // }, { passive: true });
+}
+
+function scrollPos() {
+  let d =  document.getElementById("temmieNeck").scrollTop;
+  console.log(d);
+  return d;
 }
 
 function draw() {
+  // console.log(scrollDemo.scrollTop);
   drawTemmieNeck();
   drawTemWords();
   drawPowerups();
@@ -52,9 +65,7 @@ function drawTemWords() {
 }
 
 function drawPowerups() {
-  console.log(powerupScrollMeasure);
   if (powerupScrollMeasure > 10000) {
-    console.log(powerupScrollMeasure);
     powerup = new raiseScorePowerup(random(10, 1100), amtScrolled);
     powerup.display();
     powerupScrollMeasure = 0;
