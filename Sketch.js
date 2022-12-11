@@ -8,25 +8,13 @@ let createdNextWord;
 let wordCount = 0;
 let powerup;
 let scrollDemo;
+let munsCount = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // powerup = new raiseScorePowerup(0, 100, 100);
-
-  //  scrollDemo = document.querySelector("#temmieNeck");
-
-  // scrollDemo.addEventListener("scroll", event => {
-  // }, { passive: true });
-}
-
-function scrollPos() {
-  let d =  document.getElementById("temmieNeck").scrollTop;
-  console.log(d);
-  return d;
 }
 
 function draw() {
-  // console.log(scrollDemo.scrollTop);
   drawTemmieNeck();
   drawTemWords();
   drawPowerups();
@@ -52,8 +40,8 @@ function drawTemmieNeck() {
 
 function drawTemWords() {
   if (wordScrollMeasure > 800) {
-    let temWords = ['hOI', 'im', 'dis', 'da', 'famus', 'expensiv', 'Muns', 'bOI', 'hOIVS!', 
-    'don', 'eg', 'colleg', 'cool leg', 'welcom'];
+    let temWords = ['hOI', 'im', 'dis', 'da', 'famus', 'expensiv', 'bOI', 'hOIVS!', 'don', 'eg', 
+    'colleg', 'cool leg', 'welcom'];
     nextWord = temWords[ceil(random(-1, temWords.length - 1))]
     let displayWord = createDiv(nextWord);
     displayWord.style('font-size', '35px');
@@ -66,7 +54,7 @@ function drawTemWords() {
 
 function drawPowerups() {
   if (powerupScrollMeasure > 10000) {
-    powerup = new raiseScorePowerup(random(10, 1100), amtScrolled);
+    powerup = new RaiseScorePowerup(random(10, 1100), amtScrolled);
     powerup.display();
     powerupScrollMeasure = 0;
   }
@@ -88,7 +76,7 @@ function statsCounters() {
   if (uniqueWords.length === 1) {
     text('You have found 1 unique Temmie word', 10, 30);
   }
-  else if (uniqueWords.length === 14) {
+  else if (uniqueWords.length === 13) {
     text('You have found every unique Temmie word', 10, 30)
   }
   else {
@@ -99,23 +87,30 @@ function statsCounters() {
   if (wordCount <= 10) {
     text('Your Temmie is tem long', 10, 90);
   }
-  else if (wordCount <= 20) {
+  else if (wordCount <= 30) {
     text('Your Temmie is tem tem long', 10, 90);
   }
-  else if (wordCount <= 30) {
+  else if (wordCount <= 50) {
     text('Your Temmie is tem tem tem long', 10, 90);
   }
-  else if (wordCount <= 40) {
+  else if (wordCount <= 70) {
     text('Your Temmie is temmie long', 10, 90);
   }
-  else if (wordCount <= 50) {
+  else if (wordCount <= 90) {
     text('Your Temmie is temmie temmie long', 10, 90);
   }
-  else if (wordCount <= 60) {
+  else if (wordCount <= 110) {
     text('Your Temmie is temmie temmie tem long', 10, 90);
   }
-  else {
+  else if (wordCount <= 130) {
     text('Your Temmie is temmie temmie tem tem long', 10, 90);
+  }
+  else {
+    text('Your Temmis is temmie temmie tem temmie long', 10, 90);
+  }
+
+  if (munsCount >= 1) {
+    text('Money: ' + munsCount, 10, 120);
   }
 }
 
