@@ -1,14 +1,15 @@
 let uniqueWords = [];
 let neckScrollMeasure = 0;
 let wordScrollMeasure = 0;
-let powerupScrollMeasure = 0;
+let raiseScoreScrollMeasure = 0;
+let munsScrollMeasure = 0;
 let amtScrolled = 0;
 let nextWord;
 let createdNextWord;
 let wordCount = 0;
 let powerup;
 let scrollDemo;
-let munsCount = 0;
+let munsCount = 2;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -19,12 +20,14 @@ function draw() {
   drawTemWords();
   drawPowerups();
   statsCounters();
+  graduateCollege();
 }
 
 function mouseWheel(event) {
   neckScrollMeasure += event.delta;
   wordScrollMeasure += event.delta;
-  powerupScrollMeasure += event.delta;
+  raiseScoreScrollMeasure += event.delta;
+  munsScrollMeasure += event.delta;
   amtScrolled += event.delta;
 }
 
@@ -53,10 +56,16 @@ function drawTemWords() {
 }
 
 function drawPowerups() {
-  if (powerupScrollMeasure > 10000) {
+  if (munsScrollMeasure > 6000) {
+    powerup = new MunsPowerup(random(10, 1100), amtScrolled)
+    powerup.display();
+    munsScrollMeasure = 0;
+  }
+
+  if (raiseScoreScrollMeasure > 10000) {
     powerup = new RaiseScorePowerup(random(10, 1100), amtScrolled);
     powerup.display();
-    powerupScrollMeasure = 0;
+    raiseScoreScrollMeasure = 0;
   }
 }
 
@@ -112,6 +121,21 @@ function statsCounters() {
   if (munsCount >= 1) {
     text('Money: ' + munsCount, 10, 120);
   }
+  else {
+    textSize(17.5);
+    text('Collect Muns p0WRuPs to send Temmie to colleg', 10, 115.5);
+  }
+
+  if (munsCount >= 2) {
+    textSize(16.5);
+    text("Congrats. You've sent Temmie to Hardvard. +10 muns", 9.5, 145.5);
+  }
 }
 
-
+function graduateCollege () {
+  if (munsCount === 2) {
+    let element = document.getElementById("graduationCap");
+    element.innerHTML += "<div>🎓</div>";
+    munsCount += 10;
+  }
+}
