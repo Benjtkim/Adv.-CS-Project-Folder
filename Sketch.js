@@ -126,14 +126,14 @@ function statsCounters() {
     text('Collect Muns p0WRuPs to send Temmie to colleg', 10, 115.5);
   }
 
-  if (munsCount >= 2) {
+  if (munsCount >= 10) {
     textSize(16.5);
     text("Congrats. You've sent Temmie to Hardvard. +10 muns", 9.5, 145.5);
   }
 }
 
 function graduateCollege () {
-  if (munsCount === 2) {
+  if (munsCount === 10) {
     let element = document.getElementById("graduationCap");
     element.innerHTML += "<div>🎓</div>";
     munsCount += 10;
