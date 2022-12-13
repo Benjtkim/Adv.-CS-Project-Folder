@@ -9,7 +9,7 @@ let createdNextWord;
 let wordCount = 0;
 let powerup;
 let scrollDemo;
-let munsCount = 2;
+let munsCount = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
