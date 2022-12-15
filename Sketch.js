@@ -57,7 +57,7 @@ function drawTemWords() {
 
 function drawPowerups() {
   if (munsScrollMeasure > 6000) {
-    powerup = new MunsPowerup(random(10, 1100), amtScrolled)
+    powerup = new MunsPowerup(random(10, 1000), amtScrolled)
     powerup.display();
     munsScrollMeasure = 0;
   }
@@ -126,14 +126,14 @@ function statsCounters() {
     text('Collect Muns p0WRuPs to send Temmie to colleg', 10, 115.5);
   }
 
-  if (munsCount >= 1) {
+  if (munsCount >= 5) {
     textSize(16.5);
     text("Congrats. You've sent Temmie to Hardvard. +10 muns", 9.5, 145.5);
   }
 }
 
 function graduateCollege () {
-  if (munsCount === 1) {
+  if (munsCount === 5) {
     let element = document.getElementById("graduationCap");
     element.innerHTML += "<div>🎓</div>";
     munsCount += 10;
