@@ -18,11 +18,10 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // gameSong.play();
-  // touchStarted();
 }
 
 function draw() {
+  pauseOrPlayMusic();
   drawTemmieNeck();
   drawTemWords();
   drawPowerups();
@@ -153,24 +152,34 @@ function statsCounters() {
   }
 }
 
-function touchStarted() {
-  // getAudioContext().resume();
-  gameSong.play();
-}
-
-// function mousePressed() {
-//   gameSong.pause();
-//   console.log(gameSong.isPlaying());
-// }
-
 function audioIcon() {
+  fill(color('black'))
+  ellipse(width - 34, 40, 42)
   if (gameSong.isPlaying()) {
     textSize(30);
-    text('🔊', windowWidth - 50, 50);
+    text('🔊', width - 53, 50);
   }
-  else{
+  else {
     textSize(30);
-    text('🔇', windowWidth - 50, 50);
+    text('🔇', width - 50, 50);
+  }
+}
+
+function isOverAudioIcon() {
+  if (dist(width - 34, 40, mouseX, mouseY) < 21) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+function pauseOrPlayMusic() {
+  if (isOverAudioIcon() && mouseIsPressed == true && gameSong.isPlaying() == false) {
+    gameSong.play();
+  }
+  else if ((isOverAudioIcon() && mouseIsPressed && gameSong.isPlaying() == true)) {
+    gameSong.pause();
   }
 }
 
