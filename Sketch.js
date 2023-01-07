@@ -1,9 +1,9 @@
 let uniqueWords = [];
 let neckScrollMeasure = 0;
 let wordScrollMeasure = 0;
-let raiseScoreScrollMeasure = 0;
-let munsScrollMeasure = 0;
 let amtScrolled = 0;
+let munsScrollMeasure = 0;
+let raiseScoreScrollMeasure = 0;
 let nextWord;
 let createdNextWord;
 let wordCount = 0;
@@ -33,9 +33,9 @@ function draw() {
 function mouseWheel(event) {
   neckScrollMeasure += event.delta;
   wordScrollMeasure += event.delta;
-  raiseScoreScrollMeasure += event.delta;
-  munsScrollMeasure += event.delta;
   amtScrolled += event.delta;
+  munsScrollMeasure += event.delta;
+  raiseScoreScrollMeasure += event.delta;
 }
 
 function drawTemmieNeck() {
