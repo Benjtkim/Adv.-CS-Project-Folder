@@ -9,7 +9,7 @@ class Powerup {
         powerup.id(this.id);
         powerup.style('font-size', '35px');
         powerup.position(this.x, this.y);
-        powerup.mousePressed(this.effectName);
+        powerup.mousePressed(this.effect);
     }
 }
 

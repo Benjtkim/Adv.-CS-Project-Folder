@@ -10,9 +10,16 @@ let wordCount = 0;
 let powerup;
 let scrollDemo;
 let munsCount = 0;
+let gameSong;
+
+function preload() {
+  gameSong = loadSound('tomp3.cc - Undertale Ost 087  Hopes and Dreams.mp3');
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  // gameSong.play();
+  // touchStarted();
 }
 
 function draw() {
@@ -21,6 +28,7 @@ function draw() {
   drawPowerups();
   statsCounters();
   graduateCollege();
+  audioIcon();
 }
 
 function mouseWheel(event) {
@@ -32,11 +40,24 @@ function mouseWheel(event) {
 }
 
 function drawTemmieNeck() {
-  if (neckScrollMeasure > 12) {
+  if (neckScrollMeasure > 1) {
     let element = document.getElementById("temmieNeck");
-    for (let i = 0; i < 10; i++) {
-      element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>";
-    }
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
+    element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
     neckScrollMeasure = 0;
   }
 }
@@ -129,6 +150,27 @@ function statsCounters() {
   if (munsCount >= 5) {
     textSize(16.5);
     text("Congrats. You've sent Temmie to Hardvard. +10 muns", 9.5, 145.5);
+  }
+}
+
+function touchStarted() {
+  // getAudioContext().resume();
+  gameSong.play();
+}
+
+// function mousePressed() {
+//   gameSong.pause();
+//   console.log(gameSong.isPlaying());
+// }
+
+function audioIcon() {
+  if (gameSong.isPlaying()) {
+    textSize(30);
+    text('🔊', windowWidth - 50, 50);
+  }
+  else{
+    textSize(30);
+    text('🔇', windowWidth - 50, 50);
   }
 }
 
