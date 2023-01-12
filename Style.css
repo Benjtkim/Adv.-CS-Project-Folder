@@ -2,11 +2,6 @@ html, body {
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
-    /* -webkit-scrollbar: none; */
-
-  }
-  body::-webkit-scrollbar {
-    display: none;
   }
   canvas {
     display: block;
