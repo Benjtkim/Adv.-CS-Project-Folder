@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
-  </head>
-  <style>
-    html, body {
-      margin: 0;
-      min-width: 100%;
-      min-height: 100%;
-    }
-    .wrapper {
-      padding-top: 30.5vh;
-      width: 444px;
-      margin: auto;
-      z-index: 100;
-    }
-    .div-1 {
-      top: -73px;
-      left: 433px;
-      font-size: 270px;
-      position: absolute;
-      z-index: 200;
-    }
-  </style>
-  <body>
-    <main>
-      <div id="temmieFace" class="wrapper"> 
+<!-- I got some of this html from https://www.youtube.com/watch?v=Iksq8oaebMw. Please watch this video if you want to learn how to 
+make a game like this. -->
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+</head>
+<style>
+  html,body {
+    margin: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  .wrapper {
+    padding-top: 30.5vh;
+    width: 444px;
+    margin: auto;
+    z-index: 100;
+  }
+
+  .div-1 {
+    top: -5px;
+    left: 450px;
+    font-size: 200px;
+    position: absolute;
+    z-index: 200;
+  }
+
+  pre {
+    margin: -15px;
+  }
+
+  .info {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+</style>
+<body>
+  <main>
+    <div class="wrapper">
+      <pre>
         <div id ="graduationCap" class="div-1"></div>
         ░░░░░░░░░░▄▄░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
         ░░░░░░░░░██▀█▄░░▄██▀░░░░▄██▄░░░░░░░░░░░ 
@@ -52,12 +67,30 @@
         ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
         ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░   
         ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
-        <div id="temmieNeck"></div>
-      </div>
-    </main>
-    <script src="sketch.js"></script>
-    <script src="Powerup.js"></script>
-      <script src="RaiseScorePowerup.js"></script>
-      <script src="MunsPowerup.js"></script>
-  </body>
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+      </pre><pre class="neck">
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░   
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░   
+        ░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░
+      </pre>
+    </div>
+  </main>
+  <script src="sketch.js"></script>
+  <script src="Powerup.js"></script>
+  <script src="RaiseScorePowerup.js"></script>
+  <script src="MunsPowerup.js"></script>
+  <script src="./index.js"></script>
+</body>
 </html>

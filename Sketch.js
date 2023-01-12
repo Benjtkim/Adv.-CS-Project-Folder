@@ -21,8 +21,6 @@ function setup() {
 }
 
 function draw() {
-  pauseOrPlayMusic();
-  drawTemmieNeck();
   drawTemWords();
   drawPowerups();
   statsCounters();
@@ -36,16 +34,6 @@ function mouseWheel(event) {
   amtScrolled += event.delta;
   munsScrollMeasure += event.delta;
   raiseScoreScrollMeasure += event.delta;
-}
-
-function drawTemmieNeck() {
-  if (neckScrollMeasure > 12) {
-    let element = document.getElementById("temmieNeck");
-    for (let i = 0; i < 9; i++) {
-      element.innerHTML += "<div>░░░░░░░░░░░░▀▄▄▄▄▄▄▄▄▄▀░░░░░░░░░░░░░░░░</div>"
-    }
-    neckScrollMeasure = 0;
-  }
 }
 
 function drawTemWords() {
@@ -133,7 +121,7 @@ function statsCounters() {
     text('Collect Muns p0WRuPs to send Temmie to colleg', 10, 115.5);
   }
 
-  if (munsCount >= 5) {
+  if (munsCount >= 10) {
     textSize(16.5);
     text("Congrats. You've sent Temmie to Hardvard. +10 muns", 9.5, 145.5);
   }
@@ -161,17 +149,21 @@ function isOverAudioIcon() {
   }
 }
 
+function mousePressed() {
+  pauseOrPlayMusic();
+}
+
 function pauseOrPlayMusic() {
-  if (isOverAudioIcon() && mouseIsPressed == true && gameSong.isPlaying() == false) {
+  if (isOverAudioIcon() == true && gameSong.isPlaying() == false) {
     gameSong.play();
   }
-  else if ((isOverAudioIcon() && mouseIsPressed && gameSong.isPlaying() == true)) {
+  else if ((isOverAudioIcon() && gameSong.isPlaying() == true)) {
     gameSong.pause();
   }
 }
 
 function graduateCollege () {
-  if (munsCount === 5) {
+  if (munsCount === 10) {
     let element = document.getElementById("graduationCap");
     element.innerHTML += "<div>🎓</div>";
     munsCount += 10;
