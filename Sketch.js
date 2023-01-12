@@ -129,14 +129,14 @@ function statsCounters() {
 
 function audioIcon() {
   fill(color('black'))
-  ellipse(width - 34, 40, 42)
+  ellipse(width - 42, 40, 42)
   if (gameSong.isPlaying()) {
     textSize(30);
-    text('🔊', width - 53, 50);
+    text('🔊', width - 61, 50);
   }
   else {
     textSize(30);
-    text('🔇', width - 50, 50);
+    text('🔇', width - 58, 50);
   }
 }
 
