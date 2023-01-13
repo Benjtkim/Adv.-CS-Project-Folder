@@ -124,6 +124,7 @@ function statsCounters() {
   if (munsCount >= 10) {
     textSize(16.5);
     text("Congrats. You've sent Temmie to Hardvard. +10 muns", 9.5, 145.5);
+    text("Scroll way up to see the fruits of your labor", 9.5, 170.5);
   }
 }
 
